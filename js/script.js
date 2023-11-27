@@ -6,14 +6,8 @@ const performSearch = () => {
     return;
   }
 
-  let searchText = document.querySelector(".form-control").value;
-  searchText = searchText
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;")
-    .toLowerCase();
+  let searchText = DOMPurify.sanitize(document.querySelector(".form-control").value);
+  console.log(searchText);
 
   const btnsCollapse = Array.from(document.querySelectorAll(".collapse"));
   const errorElement = document.querySelector(".error");
