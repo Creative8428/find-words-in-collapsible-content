@@ -6,7 +6,7 @@ const performSearch = () => {
     return;
   }
 
-  let searchText = DOMPurify.sanitize(document.querySelector(".form-control").value);
+  let searchText = DOMPurify.sanitize(document.querySelector(".form-control").value).toLowerCase();
   console.log(searchText);
 
   const btnsCollapse = Array.from(document.querySelectorAll(".collapse"));
